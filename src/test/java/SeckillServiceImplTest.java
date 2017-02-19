@@ -21,12 +21,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 //配置spring和junit的整合
 @RunWith(SpringJUnit4ClassRunner.class)
 //告诉junit的配置文件
 @ContextConfiguration({"classpath:main/resources/spring/spring-dao.xml",
 	"classpath:main/resources/spring/spring-service.xml"})
+
 public class SeckillServiceImplTest {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -73,7 +75,7 @@ public class SeckillServiceImplTest {
 		try {
 			if(exposer.isFlag())
 			{
-				long userPhone = 13578945681L;
+				long userPhone = 13578943681L;
 				String md5 = exposer.getMd5();
 				SeckillExecution seckillExecution =seckillService.executeSeckill(seckillId, userPhone, md5);
 				logger.info("seckillExcution{}",seckillExecution.toString());
@@ -89,7 +91,6 @@ public class SeckillServiceImplTest {
 			e.printStackTrace();
 		}
 		catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		logger.info("---logic end----");

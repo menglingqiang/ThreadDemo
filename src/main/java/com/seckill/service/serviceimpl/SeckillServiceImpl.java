@@ -68,7 +68,7 @@ public class SeckillServiceImpl implements SeckillService{
 		return DigestUtils.md5DigestAsHex(md5.getBytes());
 	}
 	
-	@Transactional(rollbackFor=Exception.class)
+	@Transactional
 	public SeckillExecution executeSeckill(long seckillId, long userPhone,
 			String md5) throws SeckillException, RepeatException,
 			CloseException {
@@ -96,17 +96,15 @@ public class SeckillServiceImpl implements SeckillService{
 		} 
 		 catch (CloseException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				throw e;}
 		 catch (RepeatException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+			 throw e;
 			}
 		catch (Exception e){
             //所有编译期异常转换成运行期异常,这样在发生错误的时候，会进行回滚
             throw new SeckillException("seckill内部错误："+e.getMessage());
         }
-		return new SeckillExecution(seckillId, SeckillEnum.ERROR_INNER);
 	}
 	
 }
