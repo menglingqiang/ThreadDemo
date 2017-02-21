@@ -3,7 +3,7 @@
 <%@ include file="common/tag.jsp" %>
 <html>
    <head>
-      <title>秒杀列表页</title>
+      <title>测试</title>
    	  <%@ include file="common/head.jsp" %> <!-- 静态包含 -->
    	  <!-- 静态包含和动态包含的区别   静态->一个servlet  动态->多个servlet -->
    </head>
@@ -30,21 +30,22 @@
 									<tr>
 										<td>${sk.name}</td>
 										<td>${sk.number}</td>
-										<%-- <td>
-											<fmt:formatDate value="${sk.startTime}" pattern="yyyy-MM-dd HH:mm:ss"
+										<td>
+											<fmt:formatDate value="${sk.startTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
 										</td>
 										<td>
-											<fmt:formatDate value="${sk.endTime}" pattern="yyyy-MM-dd HH:mm:ss"
+											<fmt:formatDate value="${sk.endTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
 										</td>
 										<td>
-											<fmt:formatDate value="${sk.createTime}" pattern="yyyy-MM-dd HH:mm:ss"
-										</td> --%>
+											<fmt:formatDate value="${sk.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
+										</td> 
 										<td>
-											<a class="btn btn-info" href="${sk.seckillId}/detail" target="_blank">
+											<a class="btn btn-info" href="/seckillOfSpring/seckill/${sk.seckillId}/detail" target="_blank">
 											link
 											</a>
+											<td>
+											</td>
 										</td>
-				
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -61,6 +62,7 @@
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </html>
 
-<!-- 默认前缀多一个seckill? -->
-<!-- 乱码问题 -->
-<!-- 日期格式化 -->
+<!-- 默认前缀多一个seckill? 解决-->
+<!-- 乱码问题 -- 数据库的解决，但是页面字符仍然是乱码-->
+<!-- 日期格式化 -- 解决-->
+<!-- 跳页连项目名称也要加上，最前面如果不加/会默认在后面叠加出现-->

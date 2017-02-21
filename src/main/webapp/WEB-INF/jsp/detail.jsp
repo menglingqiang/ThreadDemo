@@ -13,6 +13,7 @@
 			<div class="panel-default">
 				<div class="panel-head text-center">
 					<h2>${seckill.seckillId} </h2>
+					<h2>${seckill.name} </h2>
 					<div class="panel-body">
 					
 					</div>
