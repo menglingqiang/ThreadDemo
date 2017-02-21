@@ -23,15 +23,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+//name 和value的区别
+@RequestMapping("/seckill")//默认是value
 @Controller
-@RequestMapping("/seckill")
 public class SeckillController {
 
 	@Autowired
 	private SeckillService seckillService;
 	
-	@RequestMapping(name="/list",method=RequestMethod.GET)
+	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public String list(Model model)
 	{
 		List<Seckill> list = seckillService.queryAll();
@@ -39,7 +39,7 @@ public class SeckillController {
 		return "list";
 	}
 	
-	@RequestMapping(name="/{seckillId}/detail",method=RequestMethod.GET)
+	@RequestMapping(value="/{seckillId}/detail",method=RequestMethod.GET)
 	public String detail(@PathVariable("seckillId")Long seckillId,Model model)
 	{
 		if(seckillId==null)//当seckillId的类型是long的时候  ==会报错误
@@ -52,7 +52,7 @@ public class SeckillController {
 		model.addAttribute("seckill", seckill);
 		return "detail";
 	}
-	@RequestMapping(name="/{seckillId}/exposer",method=RequestMethod.POST
+	@RequestMapping(value="/{seckillId}/exposer",method=RequestMethod.POST
 			,produces={"application/json;charset=UTF-8"})
 	@ResponseBody
 	public SeckillResult<Exposer> exposer(@PathVariable("seckillId")Long seckillId)
@@ -65,7 +65,7 @@ public class SeckillController {
 			return new SeckillResult<Exposer>(false, e.getMessage());
 		}
 	}
-	@RequestMapping(name="/{seckillId}/exposer",method=RequestMethod.POST
+	@RequestMapping(value="/{seckillId}/execute",method=RequestMethod.POST
 			,produces={"application/json;charset=UTF-8"})
 	@ResponseBody
 	public SeckillResult<SeckillExecution> execute(@PathVariable("seckillId")Long seckillId,
@@ -88,10 +88,10 @@ public class SeckillController {
 			seckillExecution = new SeckillExecution(seckillId, SeckillEnum.ERROR_INNER);
 			result = new SeckillResult<SeckillExecution>(false, seckillExecution);
 		}
-		
 		return result;
 	}
-	@RequestMapping(name ="/time/now",method=RequestMethod.GET)
+	@RequestMapping(value ="/time/now",method=RequestMethod.GET)
+	@ResponseBody
 	public SeckillResult<Long> getCurrentTime()
 	{
 		Date date = new Date();
