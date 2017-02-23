@@ -6,13 +6,7 @@ import main.java.com.seckill.entity.SuccessKilled;
 
 import org.apache.ibatis.annotations.Param;
 
-/**
- * @Author XingJun Qi
- * @MyBlog www.qixingjun.tech
- * @Version 1.0.0
- * @Date 2017/2/11
- * @Description
- */
+//秒杀商品成功表的数据库操作
 public interface SuccessKilledDao {
     /**
      * 插入购买明细，可以过滤重复秒杀

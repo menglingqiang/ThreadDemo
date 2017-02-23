@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 //name 和value的区别
+
+//秒杀类分发器 
 @RequestMapping("/seckill")//默认是value
 @Controller
 public class SeckillController {
@@ -65,7 +67,7 @@ public class SeckillController {
 			return new SeckillResult<Exposer>(false, e.getMessage());
 		}
 	}
-	@RequestMapping(value="/{seckillId}/execute",method=RequestMethod.POST
+	@RequestMapping(value="/{seckillId}/{md5}/execute",method=RequestMethod.POST
 			,produces={"application/json;charset=UTF-8"})
 	@ResponseBody
 	public SeckillResult<SeckillExecution> execute(@PathVariable("seckillId")Long seckillId,

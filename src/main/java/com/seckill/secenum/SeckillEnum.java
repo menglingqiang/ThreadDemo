@@ -1,5 +1,6 @@
 package main.java.com.seckill.secenum;
 
+//秒杀枚举类
 public enum SeckillEnum {
 
 	SUCCESS(1,"秒杀成功"),

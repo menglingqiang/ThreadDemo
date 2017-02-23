@@ -21,6 +21,7 @@ import main.java.com.seckill.exception.SeckillException;
 import main.java.com.seckill.secenum.SeckillEnum;
 import main.java.com.seckill.service.SeckillService;
 
+//秒杀服务类接口
 @Service
 public class SeckillServiceImpl implements SeckillService{
 

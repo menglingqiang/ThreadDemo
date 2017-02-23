@@ -1,13 +1,7 @@
 package main.java.com.seckill.entity;
 import java.util.Date;
 
-/**
- * @Author XingJun Qi
- * @MyBlog www.qixingjun.tech
- * @Version 1.0.0
- * @Date 2017/2/10
- * @Description 秒杀库存表对应的实体类
- */
+//秒杀商品表对应的实体类
 public class Seckill {
     private long seckillId;
     private String name;

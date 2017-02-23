@@ -1,7 +1,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-   <!-- 引入 Bootstrap -->
+<!-- 写在这里头信息不会显示这句话所以会出现乱码 -->
+<!-- 引入 Bootstrap -->
 <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- 编码格式 -->
 
 <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
 <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->

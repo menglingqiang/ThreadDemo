@@ -8,13 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @Author XingJun Qi
- * @MyBlog www.qixingjun.tech
- * @Version 1.0.0
- * @Date 2017/2/11
- * @Description
- */
+//秒杀商品表的数据库操作
 public interface SeckillDao {
     /**
      * 减库存操作

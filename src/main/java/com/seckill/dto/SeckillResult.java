@@ -1,5 +1,6 @@
 package main.java.com.seckill.dto;
 
+//控制器返回类，控制器返回josh串的包装类
 public class SeckillResult<T> {
 
 	private T data;//返回成功数据

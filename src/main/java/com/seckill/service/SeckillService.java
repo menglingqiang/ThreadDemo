@@ -8,6 +8,7 @@ import main.java.com.seckill.exception.CloseException;
 import main.java.com.seckill.exception.RepeatException;
 import main.java.com.seckill.exception.SeckillException;
 
+//秒杀服务接口
 public interface SeckillService {
 
 	/*

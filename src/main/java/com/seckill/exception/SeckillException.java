@@ -1,5 +1,6 @@
 package main.java.com.seckill.exception;
 
+//秒杀异常
 public class SeckillException extends RuntimeException{
 
 	

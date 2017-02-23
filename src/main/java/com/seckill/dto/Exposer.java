@@ -2,9 +2,9 @@ package main.java.com.seckill.dto;
 
 import java.util.Date;
 
+//秒杀暴露类包括 秒杀商品的信息，秒杀是否成功以及秒杀的加密地址
 public class Exposer {
 
-	
 	private long seckillId;
 	private boolean flag; //是否秒杀成功
 	private String md5;//秒杀的地址
@@ -92,7 +92,6 @@ public class Exposer {
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
-	
 	
 	@Override
 	public String toString() {

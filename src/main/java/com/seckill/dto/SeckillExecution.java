@@ -3,6 +3,7 @@ package main.java.com.seckill.dto;
 import main.java.com.seckill.entity.SuccessKilled;
 import main.java.com.seckill.secenum.SeckillEnum;
 
+//秒杀执行类，主要是秒杀的商品ID，秒杀状态，秒杀成功对应的的返回实体类
 public class SeckillExecution {
 
 	
@@ -11,6 +12,7 @@ public class SeckillExecution {
 	private String stateInfo;
 	private SuccessKilled successKilled;
 	
+	//秒杀成功构造器
 	public SeckillExecution(long seckillId,SeckillEnum stateEnum,
 			SuccessKilled successKilled) {
 		this.seckillId = seckillId;
@@ -18,7 +20,7 @@ public class SeckillExecution {
 		this.stateInfo = stateEnum.getStateInfo();
 		this.successKilled = successKilled;
 	}
-	
+	//秒杀失败构造类
 	public SeckillExecution(long seckillId, SeckillEnum stateEnum) {
 		this.seckillId = seckillId;
 		this.state = stateEnum.getIndex();

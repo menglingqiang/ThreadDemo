@@ -1,5 +1,6 @@
 package main.java.com.seckill.exception;
 
+//秒杀关闭异常
 public class CloseException extends  SeckillException{
 
 	public CloseException(String arg0, Throwable arg1) {

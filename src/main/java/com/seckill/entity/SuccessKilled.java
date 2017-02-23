@@ -1,13 +1,7 @@
 package main.java.com.seckill.entity;
 import java.util.Date;
 
-/**
- * @Author XingJun Qi
- * @MyBlog www.qixingjun.tech
- * @Version 1.0.0
- * @Date 2017/2/10
- * @Description 成功秒杀明细表对应的实体类
- */
+//成功秒杀商品表对应的实体类
 public class SuccessKilled {
     private long seckillId;
     private long userPhone;

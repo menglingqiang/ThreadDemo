@@ -1,5 +1,6 @@
 package main.java.com.seckill.exception;
 
+//重复秒杀异常
 public class RepeatException extends SeckillException{
 
 	public RepeatException(String arg0) {
