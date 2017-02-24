@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <h3 class="modal-title text-center">
             <span class="glyphicon glyphicon-phone"> </span>秒杀电话
           </h3>
-        </div> 
+        </div>
 
         <div class="modal-body">
           <div class="row">
@@ -71,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%--jQuery countDown倒计时插件--%>
 <script src="http://cdn.bootcss.com/jquery.countdown/2.1.0/jquery.countdown.min.js"></script>
 
-<script src="/resources/script/seckill.js" type="text/javascript"></script>
+<script src="<%= basePath %>resources/script/seckill.js" type="text/javascript"></script>
 
 <script type="text/javascript">
   $(function () {
@@ -83,4 +83,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     });
   })
 </script>
+
 </html>

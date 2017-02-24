@@ -6,13 +6,13 @@ var seckill = {
     //封装秒杀相关ajax的url
     URL: {
         now: function () {
-            return '/seckill/time/now';
+            return '/seckillOfSpring/seckill/time/now';
         },
         exposer: function (seckillId) {
-            return '/seckill/' + seckillId + '/exposer';
+            return '/seckillOfSpring/seckill/' + seckillId + '/exposer';
         },
         execution: function (seckillId, md5) {
-            return '/seckill/' + seckillId + '/' + md5 + '/execution';
+            return '/seckillOfSpring/seckill/' + seckillId + '/' + md5 + '/execute';
         }
     },
 
@@ -57,22 +57,25 @@ var seckill = {
                     }
                 });
             }
-
-            //已经登录
-            //计时交互
-            var startTime = params['startTime'];
-            var endTime = params['endTime'];
-            var seckillId = params['seckillId'];
-            $.get(seckill.URL.now(), {}, function (result) {
-                if (result && result['success']) {
-                    var nowTime = result['data'];
-                    //时间判断 计时交互
-                    seckill.countDown(seckillId, nowTime, startTime, endTime);
-                } else {
-                    console.log('result: ' + result);
-                    alert('result: ' + result);
-                }
-            });
+            else
+        	{
+            	 //已经登录
+                //计时交互
+                var startTime = params['startTime'];
+                var endTime = params['endTime'];
+                var seckillId = params['seckillId'];
+                $.get(seckill.URL.now(), {}, function (result) {
+                    if (result && result['success']) {
+                        var nowTime = result['data'];
+                        //时间判断 计时交互
+                        seckill.countDown(seckillId, nowTime, startTime, endTime);
+                    } else {
+                        console.log('result: ' + result);
+                        alert('result: ' + result);
+                    }
+                });
+        	}
+           
         }
     },
 

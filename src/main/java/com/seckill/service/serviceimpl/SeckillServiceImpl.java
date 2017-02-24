@@ -78,14 +78,16 @@ public class SeckillServiceImpl implements SeckillService{
 		if(md5==null||!md5.equals(getMd5(seckillId)))
 			throw new SeckillException("数据被篡改");
 		try {
-			int updateRow = seckillDao.reduceNumber(seckillId, new Date());
-			if(updateRow<=0)
-				throw new CloseException("秒杀失败");
+			int insertRow = successKilledDao.insertSuccessKilled(seckillId, userPhone);
+			if(insertRow<=0)
+				throw new RepeatException("重复秒杀");
 			else
 			{
-				int insertRow = successKilledDao.insertSuccessKilled(seckillId, userPhone);
-				if(insertRow<=0)
-					throw new RepeatException("重复秒杀");
+				//这里是高并发的地方
+				int updateRow = seckillDao.reduceNumber(seckillId, new Date());
+				if(updateRow<=0)
+					throw new CloseException("秒杀失败");
+				
 				else
 				{
 					SuccessKilled successKilled

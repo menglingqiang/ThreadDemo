@@ -14,6 +14,7 @@ import main.java.com.seckill.secenum.SeckillEnum;
 import main.java.com.seckill.service.SeckillService;
 
 import org.apache.ibatis.annotations.ResultMap;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,11 +26,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 //name 和value的区别
 
+import ch.qos.logback.classic.Logger;
+
 //秒杀类分发器 
 @RequestMapping("/seckill")//默认是value
 @Controller
 public class SeckillController {
 
+	public final org.slf4j.Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	private SeckillService seckillService;
 	
@@ -54,7 +58,7 @@ public class SeckillController {
 		model.addAttribute("seckill", seckill);
 		return "detail";
 	}
-	@RequestMapping(value="/{seckillId}/exposer",method=RequestMethod.POST
+	@RequestMapping(value="/{seckillId}/exposer",method=RequestMethod.GET
 			,produces={"application/json;charset=UTF-8"})
 	@ResponseBody
 	public SeckillResult<Exposer> exposer(@PathVariable("seckillId")Long seckillId)
@@ -94,10 +98,12 @@ public class SeckillController {
 	}
 	@RequestMapping(value ="/time/now",method=RequestMethod.GET)
 	@ResponseBody
-	public SeckillResult<Long> getCurrentTime()
+	public  SeckillResult<Long> getCurrentTime()
 	{
 		Date date = new Date();
-		return new SeckillResult<Long>(true,date.getTime());
+		SeckillResult<Long> longTime = new SeckillResult<Long>(true,date.getTime());
+		logger.info("-------"+longTime.toString());
+		return longTime;
 	}
 }
 
